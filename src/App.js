@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Hello from './Components/hello';
+import { MyContext } from './Components/context';
+// import { render } from 'react-dom'
+// import Test from './Components/test';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// const MyContext = React.createContext({});
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: `React`,
+      count: 1
+    };
+  }
+
+  increment = () => {
+    this.setState({count: this.state.count + 1});
+  }
+
+  decrement = () => {
+    this.setState({count: this.state.count - 1});
+  }
+
+  render() {
+    return (
+      <MyContext.Provider value={{count: this.state.count, increment: this.increment, decrement: this.decrement}}>.
+        <div>
+          <Hello count={this.state.count} />
+        </div>
+      </MyContext.Provider>
+    );
+  }
 }
 
 export default App;
