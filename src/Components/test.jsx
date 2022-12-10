@@ -7,7 +7,7 @@ export default (props) => {
         {(context) => {
             return(
                 <div>
-                <h1>Test component: {context.count}</h1>
+                <h1>Counting: {context.count}</h1>
                 <button onClick={context.increment}>Increment</button>
                 <button onClick={context.decrement}>Decrement</button>
                 </div>
